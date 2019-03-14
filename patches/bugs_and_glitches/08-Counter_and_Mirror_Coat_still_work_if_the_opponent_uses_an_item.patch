@@ -1,0 +1,54 @@
+diff --git a/engine/battle/move_effects/counter.asm b/engine/battle/move_effects/counter.asm
+index 031c399a6..9079d1027 100644
+--- a/engine/battle/move_effects/counter.asm
++++ b/engine/battle/move_effects/counter.asm
+@@ -36,11 +36,10 @@ BattleCommand_Counter:
+ 	cp SPECIAL
+ 	ret nc
+ 
+-	; BUG: Move should fail with all non-damaging battle actions
+ 	ld hl, wCurDamage
+ 	ld a, [hli]
+ 	or [hl]
+-	ret z
++	jr z, .failed
+ 
+ 	ld a, [hl]
+ 	add a
+@@ -57,3 +56,9 @@ BattleCommand_Counter:
+ 	xor a
+ 	ld [wAttackMissed], a
+ 	ret
++
++.failed
++	ld a, 1
++	ld [wEffectFailed], a
++	and a
++	ret
+diff --git a/engine/battle/move_effects/mirror_coat.asm b/engine/battle/move_effects/mirror_coat.asm
+index 96afa3175..dbd3508df 100644
+--- a/engine/battle/move_effects/mirror_coat.asm
++++ b/engine/battle/move_effects/mirror_coat.asm
+@@ -37,11 +37,10 @@ BattleCommand_MirrorCoat:
+ 	cp SPECIAL
+ 	ret c
+ 
+-	; BUG: Move should fail with all non-damaging battle actions
+ 	ld hl, wCurDamage
+ 	ld a, [hli]
+ 	or [hl]
+-	ret z
++	jr z, .failed
+ 
+ 	ld a, [hl]
+ 	add a
+@@ -58,3 +57,9 @@ BattleCommand_MirrorCoat:
+ 	xor a
+ 	ld [wAttackMissed], a
+ 	ret
++
++.failed
++	ld a, 1
++	ld [wEffectFailed], a
++	and a
++	ret
