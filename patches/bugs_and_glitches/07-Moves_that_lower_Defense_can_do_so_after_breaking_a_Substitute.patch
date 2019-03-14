@@ -1,0 +1,27 @@
+diff --git a/data/moves/effects.asm b/data/moves/effects.asm
+index 8e5b5c173..c8ccdb231 100644
+--- a/data/moves/effects.asm
++++ b/data/moves/effects.asm
+@@ -560,22 +560,21 @@ AttackDownHit:
+ DefenseDownHit:
+ 	checkobedience
+ 	usedmovetext
+ 	doturn
+ 	critical
+ 	damagestats
+ 	damagecalc
+ 	stab
+ 	damagevariation
+ 	checkhit
+ 	effectchance
+ 	moveanim
+ 	failuretext
+ 	applydamage
+ 	criticaltext
+ 	supereffectivetext
+ 	checkfaint
+ 	buildopponentrage
+-	effectchance ; bug: duplicate effectchance shouldn't be here
+ 	defensedown
+ 	statdownmessage
+ 	endmove
