@@ -194,12 +194,12 @@ OlderHaircutBrotherScript:
 	checkflag ENGINE_GOLDENROD_UNDERGROUND_GOT_HAIRCUT
 	iftrue .AlreadyGotHaircut
 	special PlaceMoneyTopRight
-	writetext UnknownText_0x7c5f9
+	writetext GoldenrodUndergroundOlderHaircutBrotherOfferHaircutText
 	yesorno
 	iffalse .Refused
 	checkmoney YOUR_MONEY, GOLDENRODUNDERGROUND_OLDER_HAIRCUT_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
-	writetext UnknownText_0x7c69a
+	writetext GoldenrodUndergroundOlderHaircutBrotherAskWhichMonText
 	buttonsound
 	special YoungerHaircutBrother
 	ifequal $0, .Refused
@@ -522,7 +522,7 @@ UnknownText_0x7c5d6:
 	line "opened the door."
 	done
 
-UnknownText_0x7c5f9:
+GoldenrodUndergroundOlderHaircutBrotherOfferHaircutText:
 	text "Welcome!"
 
 	para "I run the #MON"
@@ -540,7 +540,7 @@ UnknownText_0x7c5f9:
 	line "to do that?"
 	done
 
-UnknownText_0x7c69a:
+GoldenrodUndergroundOlderHaircutBrotherAskWhichMonText:
 	text "Which #MON"
 	line "should I work on?"
 	done
