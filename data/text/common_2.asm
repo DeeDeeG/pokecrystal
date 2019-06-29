@@ -1,14 +1,14 @@
-UnknownText_0x1c0000::
+_NoPhotoText::
 	text "Oh, no picture?"
 	line "Come again, OK?"
 	done
 
-UnknownText_0x1c0021::
+_EggPhotoTalentText::
 	text "An EGG? My talent"
 	line "is worth more…"
 	done
 
-UnknownText_0x1c0043::
+_NameRaterHelloText::
 	text "Hello, hello! I'm"
 	line "the NAME RATER."
 
@@ -19,13 +19,13 @@ UnknownText_0x1c0043::
 	line "to rate names?"
 	done
 
-UnknownText_0x1c00a0::
+_NameRaterWhichMonText::
 	text "Which #MON's"
 	line "nickname should I"
 	cont "rate for you?"
 	prompt
 
-UnknownText_0x1c00cd::
+_NameRaterBetterNameText::
 	text "Hm… @"
 	text_ram wStringBuffer1
 	text "…"
@@ -40,25 +40,25 @@ UnknownText_0x1c00cd::
 	line "a better name?"
 	done
 
-UnknownText_0x1c0142::
+_NameRaterWhatNameText::
 	text "All right. What"
 	line "name should we"
 	cont "give it, then?"
 	prompt
 
-UnknownText_0x1c0171::
+_NameRaterFinishedText::
 	text "That's a better"
 	line "name than before!"
 
 	para "Well done!"
 	done
 
-UnknownText_0x1c019e::
+_NameRaterComeAgainText::
 	text "OK, then. Come"
 	line "again sometime."
 	done
 
-UnknownText_0x1c01be::
+_NameRaterPerfectNameText::
 	text "Hm… @"
 	text_ram wStringBuffer1
 	text "?"
@@ -71,12 +71,12 @@ UnknownText_0x1c01be::
 	line "with loving care."
 	done
 
-UnknownText_0x1c0208::
+_NameRaterEggText::
 	text "Whoa… That's just"
 	line "an EGG."
 	done
 
-UnknownText_0x1c0222::
+_NameRaterSameNameText::
 	text "It might look the"
 	line "same as before,"
 
@@ -86,7 +86,7 @@ UnknownText_0x1c0222::
 	para "Well done!"
 	done
 
-UnknownText_0x1c0272::
+_NameRaterNameText::
 	text "All right. This"
 	line "#MON is now"
 	cont "named @"
@@ -162,15 +162,15 @@ Text_ComeBack::
 	line "back!"
 	done
 
-UnknownText_0x1c0373::
+Text_BootTM::
 	text "Booted up a TM."
 	prompt
 
-UnknownText_0x1c0384::
+Text_BootHM::
 	text "Booted up an HM."
 	prompt
 
-UnknownText_0x1c0396::
+Text_ContainedMove::
 	text "It contained"
 	line "@"
 	text_ram wStringBuffer2
@@ -182,7 +182,7 @@ UnknownText_0x1c0396::
 	line "to a #MON?"
 	done
 
-UnknownText_0x1c03c2::
+Text_NotCompatibleMove::
 	text_ram wStringBuffer2
 	text " is"
 	line "not compatible"
@@ -196,7 +196,7 @@ UnknownText_0x1c03c2::
 	text "."
 	prompt
 
-UnknownText_0x1c03fa::
+Text_NoRoomTMHM::
 	text "You have no room"
 	line "for any more"
 	cont "@"
@@ -204,44 +204,44 @@ UnknownText_0x1c03fa::
 	text "S."
 	prompt
 
-UnknownText_0x1c0421::
+Text_ReceivedTMHM::
 	text "You received"
 	line "@"
 	text_ram wStringBuffer1
 	text "!"
 	prompt
 
-UnknownText_0x1c0436::
+Text_MysteryGiftCancelled::
 	text "The link has been"
 	line "cancelled."
 	prompt
 
-UnknownText_0x1c0454::
+Text_MysteryGiftCommError::
 	text "Communication"
 	line "error."
 	prompt
 
-UnknownText_0x1c046a::
+Text_RetrieveMysteryGift::
 	text "Must retrieve GIFT"
 	line "at #MON CENTER."
 	prompt
 
-UnknownText_0x1c048e::
+Text_MysteryGiftNotReady::
 	text "Your friend isn't"
 	line "ready."
 	prompt
 
-UnknownText_0x1c04a7::
+Text_MysteryGiftFiveADay::
 	text "Sorry--only five"
 	line "GIFTS a day."
 	prompt
 
-UnknownText_0x1c04c6::
+Text_MysteryGiftOneADay::
 	text "Sorry. One GIFT"
 	line "a day per person."
 	prompt
 
-UnknownText_0x1c04e9::
+Text_MysteryGiftSent::
 	text_ram wMysteryGiftPartnerName
 	text " sent"
 	line "@"
@@ -249,7 +249,7 @@ UnknownText_0x1c04e9::
 	text "."
 	prompt
 
-UnknownText_0x1c04fa::
+Text_MysteryGiftSentHome::
 	text_ram wMysteryGiftPartnerName
 	text " sent"
 	line "@"
@@ -260,14 +260,14 @@ UnknownText_0x1c04fa::
 	text "'s home."
 	prompt
 
-UnknownText_0x1c051a::
+Text_MysteryGiftReceivedCard::
 	text "Received"
 	line "@"
 	text_ram wc850
 	text "'s CARD."
 	prompt
 
-UnknownText_0x1c0531::
+Text_MysteryGiftListedCard::
 	text_ram wc850
 	text "'s CARD was"
 	line "listed as no.@"
@@ -275,17 +275,17 @@ UnknownText_0x1c0531::
 	text "."
 	prompt
 
-UnknownText_0x1c0555::
+Text_MysteryGiftNotRegisteredCard::
 	text "The CARD was not"
 	line "registered."
 	prompt
 
-UnknownText_0x1c0573::
+Text_MysteryGiftLinkCancelled::
 	text "The link has been"
 	line "cancelled."
 	prompt
 
-UnknownText_0x1c0591::
+Text_MysteryGiftLinkCommError::
 	text "Communication"
 	line "error."
 	prompt
@@ -295,23 +295,23 @@ _BadgeRequiredText::
 	line "is required."
 	prompt
 
-UnknownText_0x1c05c8::
+Text_CantUseItem::
 	text "Can't use that"
 	line "here."
 	prompt
 
-UnknownText_0x1c05dd::
+Text_UseCut::
 	text_ram wStringBuffer2
 	text " used"
 	line "CUT!"
 	prompt
 
-UnknownText_0x1c05ec::
+Text_CutNothing::
 	text "There's nothing to"
 	line "CUT here."
 	prompt
 
-UnknownText_0x1c0609::
+Text_UseFlash::
 	text "A blinding FLASH"
 	line "lights the area!@"
 	text_waitbutton
@@ -340,68 +340,68 @@ _AskSurfText::
 	line "Want to SURF?"
 	done
 
-UnknownText_0x1c068e::
+_UseWaterfallText::
 	text_ram wStringBuffer2
 	text " used"
 	line "WATERFALL!"
 	done
 
-UnknownText_0x1c06a3::
+Text_BigWaterfall::
 	text "Wow, it's a huge"
 	line "waterfall."
 	done
 
-UnknownText_0x1c06bf::
+_AskWaterfallText::
 	text "Do you want to use"
 	line "WATERFALL?"
 	done
 
-UnknownText_0x1c06de::
+_UseDigText::
 	text_ram wStringBuffer2
 	text " used"
 	line "DIG!"
 	done
 
-UnknownText_0x1c06ed::
+_UseEscapeRopeText::
 	text "<PLAYER> used an"
 	line "ESCAPE ROPE."
 	done
 
-UnknownText_0x1c0705::
+Text_CantUseDig::
 	text "Can't use that"
 	line "here."
 	done
 
-UnknownText_0x1c071a::
+Text_TeleportReturn::
 	text "Return to the last"
 	line "#MON CENTER."
 	done
 
-UnknownText_0x1c073b::
+Text_CantUseTeleport::
 	text "Can't use that"
 	line "here."
 
 	para ""
 	done
 
-UnknownText_0x1c0751::
+Text_AlreadyUseStrength::
 	text "A #MON is using"
 	line "STRENGTH already."
 	prompt
 
-UnknownText_0x1c0774::
+Text_UseStrength::
 	text_ram wStringBuffer2
 	text " used"
 	line "STRENGTH!"
 	done
 
-UnknownText_0x1c0788::
+Text_MoveBoulder::
 	text_ram wStringBuffer1
 	text " can"
 	line "move boulders."
 	prompt
 
-UnknownText_0x1c07a0::
+Text_AskStrength::
 	text "A #MON may be"
 	line "able to move this."
 
@@ -409,23 +409,23 @@ UnknownText_0x1c07a0::
 	line "STRENGTH?"
 	done
 
-UnknownText_0x1c07d8::
+Text_BouldersMove::
 	text "Boulders may now"
 	line "be moved!"
 	done
 
-UnknownText_0x1c07f4::
+Text_BouldersMayMove::
 	text "A #MON may be"
 	line "able to move this."
 	done
 
-UnknownText_0x1c0816::
+Text_UseWhirlpool::
 	text_ram wStringBuffer2
 	text " used"
 	line "WHIRLPOOL!"
 	prompt
 
-UnknownText_0x1c082b::
+Text_MayPassWhirlpool::
 	text "It's a vicious"
 	line "whirlpool!"
 
@@ -433,7 +433,7 @@ UnknownText_0x1c082b::
 	line "able to pass it."
 	done
 
-UnknownText_0x1c0864::
+Text_AskWhirlpool::
 	text "A whirlpool is in"
 	line "the way."
 
@@ -441,17 +441,17 @@ UnknownText_0x1c0864::
 	line "WHIRLPOOL?"
 	done
 
-UnknownText_0x1c0897::
+Text_UseHeadbutt::
 	text_ram wStringBuffer2
 	text " did a"
 	line "HEADBUTT!"
 	prompt
 
-UnknownText_0x1c08ac::
+Text_HeadbuttNothing::
 	text "Nope. Nothing…"
 	done
 
-UnknownText_0x1c08bc::
+Text_AskHeadbutt::
 	text "A #MON could be"
 	line "in this tree."
 
@@ -459,18 +459,18 @@ UnknownText_0x1c08bc::
 	line "it?"
 	done
 
-UnknownText_0x1c08f0::
+Text_UseRockSmash::
 	text_ram wStringBuffer2
 	text " used"
 	line "ROCK SMASH!"
 	prompt
 
-UnknownText_0x1c0906::
+Text_MaySmash::
 	text "Maybe a #MON"
 	line "can break this."
 	done
 
-UnknownText_0x1c0924::
+Text_AskRockSmash::
 	text "This rock looks"
 	line "breakable."
 
@@ -478,65 +478,66 @@ UnknownText_0x1c0924::
 	line "SMASH?"
 	done
 
-UnknownText_0x1c0958::
+Text_RodBite::
 	text "Oh!"
 	line "A bite!"
 	prompt
 
-UnknownText_0x1c0965::
+Text_RodNothing::
 	text "Not even a nibble!"
 	prompt
 
+;unused
 UnknownText_0x1c0979::
 	text "Looks like there's"
 	line "nothing here."
 	prompt
 
-UnknownText_0x1c099a::
+Text_CantGetOffBike::
 	text "You can't get off"
 	line "here!"
 	done
 
-UnknownText_0x1c09b2::
+Text_GotOnBike::
 	text "<PLAYER> got on the"
 	line "@"
 	text_ram wStringBuffer2
 	text "."
 	done
 
-UnknownText_0x1c09c7::
+Text_GotOffBike::
 	text "<PLAYER> got off"
 	line "the @"
 	text_ram wStringBuffer2
 	text "."
 	done
 
-UnknownText_0x1c09dd::
+Text_AskCut::
 	text "This tree can be"
 	line "CUT!"
 
 	para "Want to use CUT?"
 	done
 
-UnknownText_0x1c0a05::
+Text_CanCut::
 	text "This tree can be"
 	line "CUT!"
 	done
 
-UnknownText_0x1c0a1c::
+Text_FoundItem::
 	text "<PLAYER> found"
 	line "@"
 	text_ram wStringBuffer3
 	text "!"
 	done
 
-UnknownText_0x1c0a2c::
+Text_CantCarryItem::
 	text "But <PLAYER> can't"
 	line "carry any more"
 	cont "items."
 	done
 
-UnknownText_0x1c0a4e::
+Text_WhiteOut::
 	text "<PLAYER> is out of"
 	line "useable #MON!"
 
@@ -544,24 +545,24 @@ UnknownText_0x1c0a4e::
 	line "out!"
 	done
 
-UnknownText_0x1c0a77::
+Text_ItemfinderNearby::
 	text "Yes! ITEMFINDER"
 	line "indicates there's"
 	cont "an item nearby."
 	prompt
 
-UnknownText_0x1c0aa9::
+Text_ItemfinderNothing::
 	text "Nope! ITEMFINDER"
 	line "isn't responding."
 	prompt
 
-UnknownText_0x1c0acc::
+Text_PoisonFaint::
 	text_ram wStringBuffer3
 	text_start
 	line "fainted!"
 	prompt
 
-UnknownText_0x1c0ada::
+Text_PoisonWhiteout::
 	text "<PLAYER> is out of"
 	line "useable #MON!"
 
@@ -569,18 +570,18 @@ UnknownText_0x1c0ada::
 	line "out!"
 	prompt
 
-UnknownText_0x1c0b03::
+Text_UseSweetScent::
 	text_ram wStringBuffer3
 	text " used"
 	line "SWEET SCENT!"
 	done
 
-UnknownText_0x1c0b1a::
+Text_SweetScentNothing::
 	text "Looks like there's"
 	line "nothing here…"
 	done
 
-UnknownText_0x1c0b3b::
+Text_SquirtbottleNothing::
 	text "<PLAYER> sprinkled"
 	line "water."
 
@@ -588,7 +589,7 @@ UnknownText_0x1c0b3b::
 	line "happened…"
 	done
 
-UnknownText_0x1c0b65::
+Text_UseSacredAsh::
 	text "<PLAYER>'s #MON"
 	line "were all healed!"
 	done
@@ -598,16 +599,16 @@ Text_AnEGGCantHoldAnItem::
 	line "an item."
 	prompt
 
-UnknownText_0x1c0b9a::
+_PackNoItemText::
 	text "No items."
 	done
 
-UnknownText_0x1c0ba5::
+_AskThrowAwayText::
 	text "Throw away how"
 	line "many?"
 	done
 
-UnknownText_0x1c0bbb::
+_AskQuantityThrowAwayText::
 	text "Throw away @"
 	text_decimal wItemQuantityChangeBuffer, 1, 2
 	text_start
@@ -616,14 +617,14 @@ UnknownText_0x1c0bbb::
 	text "(S)?"
 	done
 
-UnknownText_0x1c0bd8::
+_ThrewAwayText::
 	text "Threw away"
 	line "@"
 	text_ram wStringBuffer2
 	text "(S)."
 	prompt
 
-UnknownText_0x1c0bee::
+_OakNoUseTimeText::
 	text "OAK: <PLAYER>!"
 	line "This isn't the"
 	cont "time to use that!"
@@ -634,24 +635,24 @@ Text_YouDontHaveAMon::
 	line "#MON!"
 	prompt
 
-UnknownText_0x1c0c2e::
+_RegisterItemText::
 	text "Registered the"
 	line "@"
 	text_ram wStringBuffer2
 	text "."
 	prompt
 
-UnknownText_0x1c0c45::
+_CantRegisterText::
 	text "You can't register"
 	line "that item."
 	prompt
 
-UnknownText_0x1c0c63::
+_AskItemMoveText::
 	text "Where should this"
 	line "be moved to?"
 	done
 
-UnknownText_0x1c0c83::
+_PackEmptyText::
 	text_start
 	done
 
@@ -665,7 +666,7 @@ Text_AreYouABoyOrAreYouAGirl::
 	line "Or are you a girl?"
 	done
 
-UnknownText_0x1c0cc6::
+Text_BattleEffectActivate::
 	text "<USER>'s"
 	line "@"
 	text_ram wStringBuffer2
@@ -673,16 +674,16 @@ UnknownText_0x1c0cc6::
 
 	text_end ; unused
 
-UnknownText_0x1c0cd0::
+Text_BattleWentWayUp::
 	text_pause
 	text "<SCROLL>went way up!"
 	prompt
 
-UnknownText_0x1c0ce0::
+Text_BattleWentUp::
 	text " went up!"
 	prompt
 
-UnknownText_0x1c0ceb::
+Text_BattleFoeEffectActivate::
 	text "<TARGET>'s"
 	line "@"
 	text_ram wStringBuffer2
@@ -690,45 +691,45 @@ UnknownText_0x1c0ceb::
 
 	text_end ; unused
 
-UnknownText_0x1c0cf5::
+Text_BattleSharplyFell::
 	text_pause
 	text "<SCROLL>sharply fell!"
 	prompt
 
-UnknownText_0x1c0d06::
+Text_BattleFell::
 	text " fell!"
 	prompt
 
-UnknownText_0x1c0d0e::
+Text_BattleUser::
 	text "<USER>@"
 	text_end
 
-UnknownText_0x1c0d12::
+Text_BattleMadeWhirlwind::
 	text_start
 	line "made a whirlwind!"
 	prompt
 
-UnknownText_0x1c0d26::
+Text_BattleTookSunlight::
 	text_start
 	line "took in sunlight!"
 	prompt
 
-UnknownText_0x1c0d3a::
+Text_BattleLowerHead::
 	text_start
 	line "lowered its head!"
 	prompt
 
-UnknownText_0x1c0d4e::
+Text_BattleGlowing::
 	text_start
 	line "is glowing!"
 	prompt
 
-UnknownText_0x1c0d5c::
+Text_BattleFlew::
 	text_start
 	line "flew up high!"
 	prompt
 
-UnknownText_0x1c0d6c::
+Text_BattleDug::
 	text_start
 	line "dug a hole!"
 	prompt
@@ -778,17 +779,17 @@ _EndUsedMove5Text::
 	text "!"
 	done
 
-UnknownText_0x1c0db0::
+Text_BreedHuh::
 	text "Huh?"
 
 	para "@"
 	text_end
 
-UnknownText_0x1c0db8::
+Text_BreedClearbox::
 	text_start
 	done
 
-UnknownText_0x1c0dba::
+Text_BreedEggHatch::
 	text_ram wStringBuffer1
 	text " came"
 	line "out of its EGG!@"
@@ -798,14 +799,14 @@ UnknownText_0x1c0dba::
 
 	text_end ; unused
 
-UnknownText_0x1c0dd8::
+Text_BreedAskNickname::
 	text "Give a nickname to"
 	line "@"
 	text_ram wStringBuffer1
 	text "?"
 	done
 
-UnknownText_0x1c0df3::
+Text_BreedWithLady::
 	text "It's @"
 	text_ram wBreedMon2Nick
 	text_start
@@ -813,7 +814,7 @@ UnknownText_0x1c0df3::
 	cont "the DAY-CARE LADY."
 	done
 
-UnknownText_0x1c0e24::
+Text_BreedWithMan::
 	text "It's @"
 	text_ram wBreedMon1Nick
 	text_start
@@ -821,33 +822,33 @@ UnknownText_0x1c0e24::
 	cont "the DAY-CARE MAN."
 	done
 
-UnknownText_0x1c0e54::
+Text_BreedBrimming::
 	text "It's brimming with"
 	line "energy."
 	prompt
 
-UnknownText_0x1c0e6f::
+Text_BreedNoInterest::
 	text "It has no interest"
 	line "in @"
 	text_ram wStringBuffer1
 	text "."
 	prompt
 
-UnknownText_0x1c0e8d::
+Text_BreedCaring::
 	text "It appears to care"
 	line "for @"
 	text_ram wStringBuffer1
 	text "."
 	prompt
 
-UnknownText_0x1c0eac::
+Text_BreedFriendly::
 	text "It's friendly with"
 	line "@"
 	text_ram wStringBuffer1
 	text "."
 	prompt
 
-UnknownText_0x1c0ec6::
+Text_BreedShowInterest::
 	text "It shows interest"
 	line "in @"
 	text_ram wStringBuffer1
@@ -888,14 +889,17 @@ MailMovedFromBoxText::
 	line "from the MAILBOX."
 	prompt
 
+; unused
 UnknownText_0x1c0fb3::
 	text "Yes"
 	prompt
 
+; unused
 UnknownText_0x1c0fb8::
 	text "No"
 	prompt
 
+; unused
 UnknownText_0x1c0fbc::
 	text_decimal wcf64, 1, 3
 	text " @"
@@ -907,6 +911,7 @@ UnknownText_0x1c0fbc::
 
 	text_end ; unused
 
+; unused
 UnknownText_0x1c0fdd::
 	text "#MON number?"
 	done
@@ -917,16 +922,16 @@ Text_WasSentToBillsPC::
 	line "sent to BILL's PC."
 	prompt
 
-UnknownText_0x1c1006::
+Text_PCNoPokemonCall::
 	text "You gotta have"
 	line "#MON to call!"
 	prompt
 
-UnknownText_0x1c1024::
+Text_PCWhat::
 	text "What?"
 	done
 
-UnknownText_0x1c102b::
+Text_PCRemoveMail::
 	text "There is a #MON"
 	line "holding MAIL."
 
@@ -934,32 +939,33 @@ UnknownText_0x1c102b::
 	line "MAIL."
 	prompt
 
-UnknownText_0x1c1062::
+Text_PCNoSingleMon::
 	text "You don't have a"
 	line "single #MON!"
 	prompt
 
-UnknownText_0x1c1080::
+Text_PCNoCantDeposit::
 	text "You can't deposit"
 	line "your last #MON!"
 	prompt
 
-UnknownText_0x1c10a2::
+Text_PCCantTake::
 	text "You can't take any"
 	line "more #MON."
 	prompt
 
-UnknownText_0x1c10c0::
+; start caught mon
+Text_ContestCaughtMon::
 	text "Caught @"
 	text_ram wStringBuffer1
 	text "!"
 	prompt
 
-UnknownText_0x1c10cf::
+Text_ContestAskSwitch::
 	text "Switch #MON?"
 	done
 
-UnknownText_0x1c10dd::
+Text_ContestAlreadyCaught::
 	text "You already caught"
 	line "a @"
 	text_ram wStringBuffer1
@@ -1032,7 +1038,7 @@ ContestJudging_ThirdPlaceScoreText::
 	text " points!"
 	prompt
 
-UnknownText_0x1c1203::
+Text_KarpGuruMeasure::
 	text "Let me measure"
 	line "that MAGIKARP."
 
@@ -1042,7 +1048,7 @@ UnknownText_0x1c1203::
 	text "."
 	prompt
 
-UnknownText_0x1c123a::
+Text_KarpGuruRecord::
 	text "CURRENT RECORD"
 
 	para "@"
@@ -1055,7 +1061,7 @@ UnknownText_0x1c123a::
 
 	text_end ; unused
 
-UnknownText_0x1c1261::
+Text_LuckyNumberMatchParty::
 	text "Congratulations!"
 
 	para "We have a match"
@@ -1067,7 +1073,7 @@ UnknownText_0x1c1261::
 	line "your party."
 	prompt
 
-UnknownText_0x1c12ae::
+Text_LuckyNumberMatchPC::
 	text "Congratulations!"
 
 	para "We have a match"
@@ -1079,7 +1085,7 @@ UnknownText_0x1c12ae::
 	line "your PC BOX."
 	prompt
 
-UnknownText_0x1c12fc::
+Text_CaughtAskNickname::
 	text "Give a nickname to"
 	line "the @"
 	text_ram wStringBuffer1
@@ -1087,18 +1093,18 @@ UnknownText_0x1c12fc::
 	cont "received?"
 	done
 
-UnknownText_0x1c1328::
+Text_PokePCCantUse::
 	text "Bzzzzt! You must"
 	line "have a #MON to"
 	cont "use this!"
 	prompt
 
-UnknownText_0x1c1353::
+Text_PlayersPCTurnOn::
 	text "<PLAYER> turned on"
 	line "the PC."
 	prompt
 
-UnknownText_0x1c1368::
+Text_PlayersPCAskWhatDo::
 	text "What do you want"
 	line "to do?"
 	done
@@ -1122,7 +1128,7 @@ _PlayersPCNoRoomWithdrawText::
 	line "for more items."
 	prompt
 
-UnknownText_0x1c13df::
+_PlayersPCNoItemsText::
 	text "No items here!"
 	prompt
 
@@ -1145,16 +1151,16 @@ _PlayersPCNoRoomDepositText::
 	line "store items."
 	prompt
 
-UnknownText_0x1c144d::
+Text_CenterPCTurnOn::
 	text "<PLAYER> turned on"
 	line "the PC."
 	prompt
 
-UnknownText_0x1c1462::
+Text_CenterPCWhose::
 	text "Access whose PC?"
 	done
 
-UnknownText_0x1c1474::
+Text_CenterPCBill::
 	text "BILL's PC"
 	line "accessed."
 
@@ -1162,14 +1168,14 @@ UnknownText_0x1c1474::
 	line "System opened."
 	prompt
 
-UnknownText_0x1c14a4::
+Text_CenterPCPlayers::
 	text "Accessed own PC."
 
 	para "Item Storage"
 	line "System opened."
 	prompt
 
-UnknownText_0x1c14d2::
+Text_CenterPCOaks::
 	text "PROF.OAK's PC"
 	line "accessed."
 
@@ -1177,7 +1183,7 @@ UnknownText_0x1c14d2::
 	line "System opened."
 	prompt
 
-UnknownText_0x1c1505::
+Text_CenterPCOaksClosed::
 	text "…"
 	line "Link closed…"
 	done
@@ -1347,6 +1353,7 @@ _OakPCText4::
 	line "OAK's PC closed."
 	done
 
+; unused
 UnknownText_0x1c19cd::
 	text "Triple-theme"
 	line "trainer ranking!"
@@ -1358,6 +1365,7 @@ UnknownText_0x1c19cd::
 	para ""
 	done
 
+; unused
 UnknownText_0x1c1a22::
 	text "There is no"
 	line "ranking data."
@@ -1376,19 +1384,19 @@ UnknownText_0x1c1a65::
 	text "Darn…"
 	done
 
-UnknownText_0x1c1a6c::
+Text_StartMenuContestEnd::
 	text "Would you like to"
 	line "end the Contest?"
 	done
 
-UnknownText_0x1c1a90::
+Text_ItemsAskTossQuantity::
 	text "Toss out how many"
 	line "@"
 	text_ram wStringBuffer2
 	text "(S)?"
 	done
 
-UnknownText_0x1c1aad::
+Text_ItemsThrowAway::
 	text "Throw away @"
 	text_decimal wItemQuantityChangeBuffer, 1, 2
 	text_start
@@ -1397,25 +1405,25 @@ UnknownText_0x1c1aad::
 	text "(S)?"
 	done
 
-UnknownText_0x1c1aca::
+Text_ItemsDiscarded::
 	text "Discarded"
 	line "@"
 	text_ram wStringBuffer1
 	text "(S)."
 	prompt
 
-UnknownText_0x1c1adf::
+Text_ItemsTooImportant::
 	text "That's too impor-"
 	line "tant to toss out!"
 	prompt
 
-UnknownText_0x1c1b03::
+Text_ItemsOakWarning::
 	text "OAK: <PLAYER>!"
 	line "This isn't the"
 	cont "time to use that!"
 	done
 
-UnknownText_0x1c1b2c::
+Text_ItemsSwapPokemon::
 	text "Took @"
 	text_ram wMonOrItemNameBuffer
 	text "'s"
@@ -1429,7 +1437,7 @@ UnknownText_0x1c1b2c::
 	text "."
 	prompt
 
-UnknownText_0x1c1b57::
+Text_PokemonHoldItem::
 	text "Made @"
 	text_ram wMonOrItemNameBuffer
 	text_start
@@ -1438,23 +1446,23 @@ UnknownText_0x1c1b57::
 	text "."
 	prompt
 
-UnknownText_0x1c1b6f::
+Text_PokemonRemoveMail::
 	text "Please remove the"
 	line "MAIL first."
 	prompt
 
-UnknownText_0x1c1b8e::
+Text_PokemonNotHolding::
 	text_ram wMonOrItemNameBuffer
 	text " isn't"
 	line "holding anything."
 	prompt
 
-UnknownText_0x1c1baa::
+Text_ItemStorageFull::
 	text "Item storage space"
 	line "full."
 	prompt
 
-UnknownText_0x1c1bc4::
+Text_PokemonTookItem::
 	text "Took @"
 	text_ram wStringBuffer1
 	text_start
@@ -1463,7 +1471,7 @@ UnknownText_0x1c1bc4::
 	text "."
 	prompt
 
-UnknownText_0x1c1bdc::
+Text_PokemonAskSwapItem::
 	text_ram wMonOrItemNameBuffer
 	text " is"
 	line "already holding"
@@ -1474,48 +1482,48 @@ UnknownText_0x1c1bdc::
 	line "Switch items?"
 	done
 
-UnknownText_0x1c1c09::
+Text_ItemCantHeld::
 	text "This item can't be"
 	line "held."
 	prompt
 
-UnknownText_0x1c1c22::
+Text_MailLoseMessage::
 	text "The MAIL will lose"
 	line "its message. OK?"
 	done
 
-UnknownText_0x1c1c47::
+Text_MailDetached::
 	text "MAIL detached from"
 	line "@"
 	text_ram wStringBuffer1
 	text "."
 	prompt
 
-UnknownText_0x1c1c62::
+Text_MailNoSpace::
 	text "There's no space"
 	line "for removing MAIL."
 	prompt
 
-UnknownText_0x1c1c86::
+Text_MailAskSendToPC::
 	text "Send the removed"
 	line "MAIL to your PC?"
 	done
 
-UnknownText_0x1c1ca9::
+Text_MailboxFull::
 	text "Your PC's MAILBOX"
 	line "is full."
 	prompt
 
-UnknownText_0x1c1cc4::
+Text_MailSentToPC::
 	text "The MAIL was sent"
 	line "to your PC."
 	prompt
 
-UnknownText_0x1c1ce3::
+Text_PokemonNotEnoughHP::
 	text "Not enough HP!"
 	prompt
 
-UnknownText_0x1c1cf3::
+Text_MayRegisterItem::
 	text "An item in your"
 	line "PACK may be"
 

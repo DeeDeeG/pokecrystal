@@ -114,7 +114,7 @@ FieldMoveFailed:
 
 .CantUseHere:
 	; Can't use that here.
-	text_far UnknownText_0x1c05c8
+	text_far Text_CantUseItem
 	text_end
 
 CutFunction:
@@ -163,12 +163,12 @@ CutFunction:
 
 Text_UsedCut:
 	; used CUT!
-	text_far UnknownText_0x1c05dd
+	text_far Text_UseCut
 	text_end
 
 Text_NothingToCut:
 	; There's nothing to CUT here.
-	text_far UnknownText_0x1c05ec
+	text_far Text_CutNothing
 	text_end
 
 CheckMapForSomethingToCut:
@@ -317,13 +317,13 @@ UseFlash:
 Script_UseFlash:
 	reloadmappart
 	special UpdateTimePals
-	writetext UnknownText_0xc8f3
+	writetext UseFlashTextScript
 	callasm BlindingFlash
 	closetext
 	end
 
-UnknownText_0xc8f3:
-	text_far UnknownText_0x1c0609
+UseFlashTextScript:
+	text_far Text_UseFlash
 	text_asm
 	call WaitSFX
 	ld de, SFX_FLASH
@@ -710,7 +710,7 @@ Script_UsedWaterfall:
 
 .Text_UsedWaterfall:
 	; used WATERFALL!
-	text_far UnknownText_0x1c068e
+	text_far _UseWaterfallText
 	text_end
 
 TryWaterfallOW::
@@ -740,7 +740,7 @@ Script_CantDoWaterfall:
 
 .Text_CantDoWaterfall:
 	; Wow, it's a huge waterfall.
-	text_far UnknownText_0x1c06a3
+	text_far Text_BigWaterfall
 	text_end
 
 Script_AskWaterfall:
@@ -753,7 +753,7 @@ Script_AskWaterfall:
 
 .AskUseWaterfall:
 	; Do you want to use WATERFALL?
-	text_far UnknownText_0x1c06bf
+	text_far _AskWaterfallText
 	text_end
 
 EscapeRopeFunction:
@@ -840,17 +840,17 @@ dig_incave
 
 .Text_UsedDig:
 	; used DIG!
-	text_far UnknownText_0x1c06de
+	text_far _UseDigText
 	text_end
 
 .Text_UsedEscapeRope:
 	; used an ESCAPE ROPE.
-	text_far UnknownText_0x1c06ed
+	text_far _UseEscapeRopeText
 	text_end
 
 .Text_CantUseHere:
 	; Can't use that here.
-	text_far UnknownText_0x1c0705
+	text_far Text_CantUseDig
 	text_end
 
 .UsedEscapeRopeScript:
@@ -939,12 +939,12 @@ TeleportFunction:
 
 .Text_ReturnToLastMonCenter:
 	; Return to the last #MON CENTER.
-	text_far UnknownText_0x1c071a
+	text_far Text_TeleportReturn
 	text_end
 
 .Text_CantUseHere:
 	; Can't use that here.
-	text_far UnknownText_0x1c073b
+	text_far Text_CantUseTeleport
 	text_end
 
 .TeleportScript:
@@ -992,7 +992,7 @@ StrengthFunction:
 	ret
 
 .JumpText:
-	text_far UnknownText_0x1c0751
+	text_far Text_AlreadyUseStrength
 	text_end
 
 .Failed:
@@ -1033,11 +1033,11 @@ Script_UsedStrength:
 	end
 
 .UsedStrength:
-	text_far UnknownText_0x1c0774
+	text_far Text_UseStrength
 	text_end
 
 .StrengthAllowedItToMoveBoulders:
-	text_far UnknownText_0x1c0788
+	text_far Text_MoveBoulder
 	text_end
 
 AskStrengthScript:
@@ -1047,32 +1047,32 @@ AskStrengthScript:
 	sjump .AlreadyUsedStrength
 
 .DontMeetRequirements:
-	jumptext UnknownText_0xcd73
+	jumptext StrengthDontMeetScript
 
 .AlreadyUsedStrength:
-	jumptext UnknownText_0xcd6e
+	jumptext AlreadyUsedStrengthTextScript
 
 .AskStrength:
 	opentext
-	writetext UnknownText_0xcd69
+	writetext AskStrengthScriptText
 	yesorno
 	iftrue Script_UsedStrength
 	closetext
 	end
 
-UnknownText_0xcd69:
+AskStrengthScriptText:
 	; A #MON may be able to move this. Want to use STRENGTH?
-	text_far UnknownText_0x1c07a0
+	text_far Text_AskStrength
 	text_end
 
-UnknownText_0xcd6e:
+AlreadyUsedStrengthTextScript:
 	; Boulders may now be moved!
-	text_far UnknownText_0x1c07d8
+	text_far Text_BouldersMove
 	text_end
 
-UnknownText_0xcd73:
+StrengthDontMeetScript:
 	; A #MON may be able to move this.
-	text_far UnknownText_0x1c07f4
+	text_far Text_BouldersMayMove
 	text_end
 
 TryStrengthOW:
@@ -1148,7 +1148,7 @@ Jumptable_cdae:
 
 Text_UsedWhirlpool:
 	; used WHIRLPOOL!
-	text_far UnknownText_0x1c0816
+	text_far Text_UseWhirlpool
 	text_end
 
 TryWhirlpoolMenu:
@@ -1235,19 +1235,19 @@ Script_MightyWhirlpool:
 	jumptext .MightyWhirlpoolText
 
 .MightyWhirlpoolText:
-	text_far UnknownText_0x1c082b
+	text_far Text_MayPassWhirlpool
 	text_end
 
 Script_AskWhirlpoolOW:
 	opentext
-	writetext UnknownText_0xce78
+	writetext AskWhirlpoolTextScript
 	yesorno
 	iftrue Script_UsedWhirlpool
 	closetext
 	end
 
-UnknownText_0xce78:
-	text_far UnknownText_0x1c0864
+AskWhirlpoolTextScript:
+	text_far Text_AskWhirlpool
 	text_end
 
 HeadbuttFunction:
@@ -1271,14 +1271,14 @@ TryHeadbuttFromMenu:
 	ld a, $80
 	ret
 
-UnknownText_0xce9d:
+UseHeadbuttTextScript:
 	; did a HEADBUTT!
-	text_far UnknownText_0x1c0897
+	text_far Text_UseHeadbutt
 	text_end
 
-UnknownText_0xcea2:
+HeadbuttNothingScript:
 	; Nope. Nothing…
-	text_far UnknownText_0x1c08ac
+	text_far Text_HeadbuttNothing
 	text_end
 
 HeadbuttFromMenuScript:
@@ -1287,7 +1287,7 @@ HeadbuttFromMenuScript:
 
 HeadbuttScript:
 	callasm GetPartyNick
-	writetext UnknownText_0xce9d
+	writetext UseHeadbuttTextScript
 
 	reloadmappart
 	callasm ShakeHeadbuttTree
@@ -1301,7 +1301,7 @@ HeadbuttScript:
 	end
 
 .no_battle
-	writetext UnknownText_0xcea2
+	writetext HeadbuttNothingScript
 	waitbutton
 	closetext
 	end
@@ -1323,15 +1323,15 @@ TryHeadbuttOW::
 
 AskHeadbuttScript:
 	opentext
-	writetext UnknownText_0xcee6
+	writetext AskkHeadbuttTextScript
 	yesorno
 	iftrue HeadbuttScript
 	closetext
 	end
 
-UnknownText_0xcee6:
+AskkHeadbuttTextScript:
 	; A #MON could be in this tree. Want to HEADBUTT it?
-	text_far UnknownText_0x1c08bc
+	text_far Text_AskHeadbutt
 	text_end
 
 RockSmashFunction:
@@ -1385,7 +1385,7 @@ RockSmashFromMenuScript:
 
 RockSmashScript:
 	callasm GetPartyNick
-	writetext UnknownText_0xcf58
+	writetext UseRockSmashTextScript
 	closetext
 	special WaitSFX
 	playsound SFX_STRENGTH
@@ -1406,8 +1406,8 @@ MovementData_0xcf55:
 	rock_smash 10
 	step_end
 
-UnknownText_0xcf58:
-	text_far UnknownText_0x1c08f0
+UseRockSmashTextScript:
+	text_far Text_UseRockSmash
 	text_end
 
 AskRockSmashScript:
@@ -1415,22 +1415,22 @@ AskRockSmashScript:
 	ifequal 1, .no
 
 	opentext
-	writetext UnknownText_0xcf77
+	writetext AskRockSmashTextScript
 	yesorno
 	iftrue RockSmashScript
 	closetext
 	end
 .no
-	jumptext UnknownText_0xcf72
+	jumptext RockSmashNoText
 
-UnknownText_0xcf72:
+RockSmashNoText:
 	; Maybe a #MON can break this.
-	text_far UnknownText_0x1c0906
+	text_far Text_MaySmash
 	text_end
 
-UnknownText_0xcf77:
+AskRockSmashTextScript:
 	; This rock looks breakable. Want to use ROCK SMASH?
-	text_far UnknownText_0x1c0924
+	text_far Text_AskRockSmash
 	text_end
 
 HasRockSmash:
@@ -1539,12 +1539,12 @@ FishFunction:
 
 Script_NotEvenANibble:
 	scall Script_FishCastRod
-	writetext UnknownText_0xd0a9
+	writetext RodNothingScript
 	sjump Script_NotEvenANibble_FallThrough
 
 Script_NotEvenANibble2:
 	scall Script_FishCastRod
-	writetext UnknownText_0xd0a9
+	writetext RodNothingScript
 
 Script_NotEvenANibble_FallThrough:
 	loademote EMOTE_SHADOW
@@ -1565,7 +1565,7 @@ Script_GotABite:
 .FightTheHookedPokemon:
 	pause 40
 	applymovement PLAYER, .Movement_RestoreRod
-	writetext UnknownText_0xd0a4
+	writetext RodBiteText
 	callasm PutTheRodAway
 	closetext
 	randomwildmon
@@ -1631,14 +1631,14 @@ PutTheRodAway:
 	call ReplaceKrisSprite
 	ret
 
-UnknownText_0xd0a4:
+RodBiteText:
 	; Oh! A bite!
-	text_far UnknownText_0x1c0958
+	text_far Text_RodBite
 	text_end
 
-UnknownText_0xd0a9:
+RodNothingScript:
 	; Not even a nibble!
-	text_far UnknownText_0x1c0965
+	text_far Text_RodNothing
 	text_end
 
 UnknownText_0xd0ae: ; unused
@@ -1777,17 +1777,17 @@ Script_CantGetOffBike:
 
 .CantGetOffBikeText:
 	; You can't get off here!
-	text_far UnknownText_0x1c099a
+	text_far Text_CantGetOffBike
 	text_end
 
 GotOnTheBikeText:
 	; got on the @ .
-	text_far UnknownText_0x1c09b2
+	text_far Text_GotOnBike
 	text_end
 
 GotOffTheBikeText:
 	; got off the @ .
-	text_far UnknownText_0x1c09c7
+	text_far Text_GotOffBike
 	text_end
 
 TryCutOW::
@@ -1814,7 +1814,7 @@ TryCutOW::
 
 AskCutScript:
 	opentext
-	writetext UnknownText_0xd1c8
+	writetext AskCutTextScript
 	yesorno
 	iffalse .script_d1b8
 	callasm .CheckMap
@@ -1832,13 +1832,13 @@ AskCutScript:
 	ld [wScriptVar], a
 	ret
 
-UnknownText_0xd1c8:
-	text_far UnknownText_0x1c09dd
+AskCutTextScript:
+	text_far Text_AskCut
 	text_end
 
 CantCutScript:
-	jumptext UnknownText_0xd1d0
+	jumptext CantCutTextScript
 
-UnknownText_0xd1d0:
-	text_far UnknownText_0x1c0a05
+CantCutTextScript:
+	text_far Text_CanCut
 	text_end

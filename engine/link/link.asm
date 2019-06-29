@@ -507,7 +507,7 @@ LinkTimeout:
 
 .TooMuchTimeHasElapsed:
 	; Too much time has elapsed. Please try again.
-	text_far UnknownText_0x1c4183
+	text_far Text_LinkTimeout
 	text_end
 
 ExchangeBytes:
@@ -1489,7 +1489,7 @@ Function28926:
 
 .Text_CantTradeLastMon:
 	; If you trade that #MON, you won't be able to battle.
-	text_far UnknownText_0x1c41b1
+	text_far Text_LinkTradeCantBattle
 	text_end
 
 .String_Stats_Trade:
@@ -1497,7 +1497,7 @@ Function28926:
 
 .Text_Abnormal:
 	; Your friend's @  appears to be abnormal!
-	text_far UnknownText_0x1c41e6
+	text_far Text_LinkAbnormalMon
 	text_end
 
 Function28ac9:
@@ -1633,7 +1633,7 @@ LinkTrade:
 	ld a, [hl]
 	ld [wNamedObjectIndexBuffer], a
 	call GetPokemonName
-	ld hl, UnknownText_0x28eb8
+	ld hl, LinkAskTradeForScript
 	bccoord 1, 14
 	call PlaceHLTextAtBC
 	call LoadStandardMenuHeader
@@ -1948,9 +1948,9 @@ String28eab:
 	db   "TRADE"
 	next "CANCEL@"
 
-UnknownText_0x28eb8:
+LinkAskTradeForScript:
 	; Trade @ for @ ?
-	text_far UnknownText_0x1c4212
+	text_far Text_LinkAskTradeFor
 	text_end
 
 String28ebd:
