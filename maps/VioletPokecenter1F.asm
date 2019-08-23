@@ -18,7 +18,7 @@ VioletPokecenter1F_ElmsAideScript:
 	opentext
 	checkevent EVENT_REFUSED_TO_TAKE_EGG_FROM_ELMS_AIDE
 	iftrue .SecondTimeAsking
-	writetext UnknownText_0x69555
+	writetext VioletPokecenter1FElmsAideAskTakeEggText
 .AskTakeEgg:
 	yesorno
 	iffalse .RefusedEgg
@@ -31,7 +31,7 @@ VioletPokecenter1F_ElmsAideScript:
 	clearevent EVENT_ELMS_AIDE_IN_LAB
 	clearevent EVENT_TOGEPI_HATCHED
 	setmapscene ROUTE_32, SCENE_ROUTE32_OFFER_SLOWPOKETAIL
-	writetext UnknownText_0x695c5
+	writetext VioletPokecenter1FElmsAideEggExplanationText
 	waitbutton
 	closetext
 	readvar VAR_FACING
@@ -60,20 +60,20 @@ VioletPokecenter1F_ElmsAideScript:
 	end
 
 .PartyFull:
-	writetext UnknownText_0x69693
+	writetext VioletPokecenter1FElmsAideMakeRoomForEggText
 	waitbutton
 	closetext
 	end
 
 .RefusedEgg:
-	writetext UnknownText_0x696f2
+	writetext VioletPokecenter1FElmsAideButElmAskedText
 	waitbutton
 	closetext
 	setevent EVENT_REFUSED_TO_TAKE_EGG_FROM_ELMS_AIDE
 	end
 
 .SecondTimeAsking:
-	writetext UnknownText_0x69712
+	writetext VioletPokecenter1FElmsAideWillYouTakeEggText
 	sjump .AskTakeEgg
 
 VioletPokecenter1FGameboyKidScript:
@@ -103,7 +103,7 @@ MovementData_AideFinishesLeavingPokecenter:
 	step DOWN
 	step_end
 
-UnknownText_0x69555:
+VioletPokecenter1FElmsAideAskTakeEggText:
 	text "<PLAY_G>, long"
 	line "time, no see."
 
@@ -117,7 +117,7 @@ UnknownText_0x69555:
 	line "#MON EGG?"
 	done
 
-UnknownText_0x695c5:
+VioletPokecenter1FElmsAideEggExplanationText:
 	text "We discovered that"
 	line "a #MON will not"
 
@@ -137,7 +137,7 @@ UnknownText_0x695c5:
 	cont "hatches!"
 	done
 
-UnknownText_0x69693:
+VioletPokecenter1FElmsAideMakeRoomForEggText:
 	text "Oh, no. You can't"
 	line "carry any more"
 	cont "#MON with you."
@@ -147,12 +147,12 @@ UnknownText_0x69693:
 	cont "room for the EGG."
 	done
 
-UnknownText_0x696f2:
+VioletPokecenter1FElmsAideButElmAskedText:
 	text "B-but… PROF.ELM"
 	line "asked for you…"
 	done
 
-UnknownText_0x69712:
+VioletPokecenter1FElmsAideWillYouTakeEggText:
 	text "<PLAY_G>, will you"
 	line "take the EGG?"
 	done
