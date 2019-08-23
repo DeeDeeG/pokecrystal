@@ -19,34 +19,34 @@ MountMortarB1FKiyoScript:
 	iftrue .GotTyrogue
 	checkevent EVENT_BEAT_BLACKBELT_KIYO
 	iftrue .BeatKiyo
-	writetext UnknownText_0x7e24d
+	writetext MountMortarB1FKiyoBattleWithMeText
 	waitbutton
 	closetext
-	winlosstext UnknownText_0x7e2a9, 0
+	winlosstext MountMortarB1FKiyoBeatenText, 0
 	loadtrainer BLACKBELT_T, KIYO
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_BLACKBELT_KIYO
 	opentext
 .BeatKiyo:
-	writetext UnknownText_0x7e2c0
+	writetext MountMortarB1FKiyoGiveRareFightingMonText
 	buttonsound
 	waitsfx
 	readvar VAR_PARTYCOUNT
 	ifequal PARTY_LENGTH, .NoRoom
-	writetext UnknownText_0x7e355
+	writetext MountMortarB1FPlayerReceivedTyrogueText
 	playsound SFX_CAUGHT_MON
 	waitsfx
 	givepoke TYROGUE, 10
 	setevent EVENT_GOT_TYROGUE_FROM_KIYO
 .GotTyrogue:
-	writetext UnknownText_0x7e36a
+	writetext MountMortarB1FKiyoFarewellText
 	waitbutton
 	closetext
 	end
 
 .NoRoom:
-	writetext UnknownText_0x7e3df
+	writetext MountMortarB1FKiyoNoRoomInPartyText
 	waitbutton
 	closetext
 	end
@@ -72,7 +72,7 @@ MountMortarB1FPPUp:
 MountMortarB1FHiddenMaxRevive:
 	hiddenitem MAX_REVIVE, EVENT_MOUNT_MORTAR_B1F_HIDDEN_MAX_REVIVE
 
-UnknownText_0x7e24d:
+MountMortarB1FKiyoBattleWithMeText:
 	text "Hey!"
 
 	para "I am the KARATE"
@@ -87,12 +87,12 @@ UnknownText_0x7e24d:
 	para "Hwaaarggh!"
 	done
 
-UnknownText_0x7e2a9:
+MountMortarB1FKiyoBeatenText:
 	text "Waaaarggh!"
 	line "I'm beaten!"
 	done
 
-UnknownText_0x7e2c0:
+MountMortarB1FKiyoGiveRareFightingMonText:
 	text "I… I'm crushed…"
 
 	para "My training is"
@@ -108,12 +108,12 @@ UnknownText_0x7e2c0:
 	line "fighting #MON."
 	done
 
-UnknownText_0x7e355:
+MountMortarB1FPlayerReceivedTyrogueText:
 	text "<PLAYER> received"
 	line "TYROGUE."
 	done
 
-UnknownText_0x7e36a:
+MountMortarB1FKiyoFarewellText:
 	text "TYROGUE is a"
 	line "fighting-type."
 
@@ -127,7 +127,7 @@ UnknownText_0x7e36a:
 	para "Farewell!"
 	done
 
-UnknownText_0x7e3df:
+MountMortarB1FKiyoNoRoomInPartyText:
 	text "You have no room"
 	line "in your party!"
 	done
