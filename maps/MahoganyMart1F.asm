@@ -2,7 +2,7 @@
 	const MAHOGANYMART1F_PHARMACIST
 	const MAHOGANYMART1F_BLACK_BELT
 	const MAHOGANYMART1F_LANCE
-	const MAHOGANYMART1F_DRAGON
+	const MAHOGANYMART1F_DRAGONITE
 	const MAHOGANYMART1F_GRANNY
 
 MahoganyMart1F_MapScripts:
@@ -67,10 +67,10 @@ MahoganyMart1FLanceUncoversStaircaseScript:
 	pause 15
 	closetext
 	playsound SFX_TACKLE
-	applymovement MAHOGANYMART1F_DRAGON, MovementData_0x6c3f6
+	applymovement MAHOGANYMART1F_DRAGONITE, MovementData_0x6c3f6
 	applymovement MAHOGANYMART1F_BLACK_BELT, MovementData_0x6c3fb
 	pause 15
-	disappear MAHOGANYMART1F_DRAGON
+	disappear MAHOGANYMART1F_DRAGONITE
 	pause 15
 	applymovement MAHOGANYMART1F_LANCE, MovementData_0x6c407
 	opentext
