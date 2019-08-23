@@ -45,18 +45,18 @@ LakeOfRageLanceScript:
 	checkevent EVENT_REFUSED_TO_HELP_LANCE_AT_LAKE_OF_RAGE
 	iftrue .AskAgainForHelp
 	opentext
-	writetext UnknownText_0x70157
+	writetext LakeOfRageLanceForcedToEvolveText
 	buttonsound
 	faceplayer
-	writetext UnknownText_0x701b4
+	writetext LakeOfRageLanceAskHelpMeInvestigateText
 	yesorno
 	iffalse .RefusedToHelp
 .AgreedToHelp:
-	writetext UnknownText_0x702c6
+	writetext LakeOfRageLanceMysteriousRadioBroadcastText
 	waitbutton
 	closetext
 	playsound SFX_WARP_TO
-	applymovement LAKEOFRAGE_LANCE, MovementData_0x70155
+	applymovement LAKEOFRAGE_LANCE, LakeOfRageLanceTeleportIntoSkyMovement
 	disappear LAKEOFRAGE_LANCE
 	clearevent EVENT_MAHOGANY_MART_LANCE_AND_DRAGONITE
 	setevent EVENT_DECIDED_TO_HELP_LANCE
@@ -64,7 +64,7 @@ LakeOfRageLanceScript:
 	end
 
 .RefusedToHelp:
-	writetext UnknownText_0x70371
+	writetext LakeOfRageLanceIfYouChangeYourMindText
 	waitbutton
 	closetext
 	setevent EVENT_REFUSED_TO_HELP_LANCE_AT_LAKE_OF_RAGE
@@ -73,14 +73,14 @@ LakeOfRageLanceScript:
 .AskAgainForHelp:
 	faceplayer
 	opentext
-	writetext UnknownText_0x703a5
+	writetext LakeOfRageLanceAreYouGoingToHelpMeText
 	yesorno
 	iffalse .RefusedToHelp
 	sjump .AgreedToHelp
 
 RedGyarados:
 	opentext
-	writetext UnknownText_0x703cb
+	writetext LakeOfRageGyaradosGyashaaText
 	pause 15
 	cry GYARADOS
 	closetext
@@ -94,7 +94,7 @@ RedGyarados:
 	opentext
 	giveitem RED_SCALE
 	waitsfx
-	writetext UnknownText_0x703df
+	writetext LakeOfRagePlayerObtainedARedScaleText
 	playsound SFX_ITEM
 	waitsfx
 	itemnotify
@@ -238,11 +238,11 @@ LakeOfRageHiddenRareCandy:
 LakeOfRageHiddenMaxPotion:
 	hiddenitem MAX_POTION, EVENT_LAKE_OF_RAGE_HIDDEN_MAX_POTION
 
-MovementData_0x70155:
+LakeOfRageLanceTeleportIntoSkyMovement:
 	teleport_from
 	step_end
 
-UnknownText_0x70157:
+LakeOfRageLanceForcedToEvolveText:
 	text "This lake is full"
 	line "of GYARADOS but"
 	cont "nothing else…"
@@ -252,7 +252,7 @@ UnknownText_0x70157:
 	cont "to evolve…"
 	done
 
-UnknownText_0x701b4:
+LakeOfRageLanceAskHelpMeInvestigateText:
 	text "Did you come here"
 	line "because of the"
 	cont "rumors?"
@@ -280,7 +280,7 @@ UnknownText_0x701b4:
 	cont "investigate?"
 	done
 
-UnknownText_0x702c6:
+LakeOfRageLanceMysteriousRadioBroadcastText:
 	text "LANCE: Excellent!"
 
 	para "It seems that the"
@@ -299,22 +299,22 @@ UnknownText_0x702c6:
 	line "for you, <PLAY_G>."
 	done
 
-UnknownText_0x70371:
+LakeOfRageLanceIfYouChangeYourMindText:
 	text "Oh… Well, if you"
 	line "change your mind,"
 	cont "please help me."
 	done
 
-UnknownText_0x703a5:
+LakeOfRageLanceAreYouGoingToHelpMeText:
 	text "LANCE: Hm? Are you"
 	line "going to help me?"
 	done
 
-UnknownText_0x703cb:
+LakeOfRageGyaradosGyashaaText:
 	text "GYARADOS: Gyashaa!"
 	done
 
-UnknownText_0x703df:
+LakeOfRagePlayerObtainedARedScaleText:
 	text "<PLAYER> obtained a"
 	line "RED SCALE."
 	done
