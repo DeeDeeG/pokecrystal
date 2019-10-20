@@ -16,7 +16,7 @@ BethExhilaratingRideText:
 	line "really gets going."
 	done
 
-BethShockedWinText:
+BethDefeatedMonText:
 	text "Oh, have you ever"
 	line "seen a @"
 	text_ram wStringBuffer4
@@ -73,16 +73,16 @@ BethBattleRematchText:
 	line "Look for me, OK?"
 	done
 
-BethLaterText:
+BethHangUpText:
 	text "OK, bye-bye!"
 	done
 
-BethHangupText:
+BethLetsBattleAgainSometimeText:
 	text "Let's battle again"
 	line "sometime!"
 	done
 
-BethForgetDealText:
+BethReminderText:
 	text "Um… <PLAY_G>?"
 	line "What's wrong?"
 

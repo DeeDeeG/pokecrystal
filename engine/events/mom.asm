@@ -38,8 +38,8 @@ BankOfMom:
 	dw .StoreMoney
 	dw .TakeMoney
 	dw .StopOrStartSavingMoney
-	dw .AskDST
 	dw .JustDoWhatYouCan
+	dw .AskDST
 
 .CheckIfBankInitialized:
 	ld a, [wMomSavingMoney]
@@ -79,7 +79,7 @@ BankOfMom:
 	ret
 
 .IsThisAboutYourMoney:
-	ld hl, MomVisitingText1
+	ld hl, MomIsThisAboutYourMoneyText
 	call PrintText
 	call YesNoBox
 	jr c, .nope
@@ -95,7 +95,7 @@ BankOfMom:
 	ret
 
 .AccessBankOfMom:
-	ld hl, MomVisitingText2
+	ld hl, MomBankWhatDoYouWantToDoText
 	call PrintText
 	call LoadStandardMenuHeader
 	ld hl, MenuHeader_0x166b5
@@ -131,7 +131,7 @@ BankOfMom:
 	ret
 
 .StoreMoney:
-	ld hl, MomVisitingText3
+	ld hl, MomStoreMoneyText
 	call PrintText
 	xor a
 	ld hl, wStringBuffer2
@@ -155,7 +155,7 @@ BankOfMom:
 	ld de, wMoney
 	ld bc, wStringBuffer2
 	farcall CompareMoney
-	jr c, .DontHaveThatMuchToDeposit
+	jr c, .InsufficientFundsInWallet
 	ld hl, wStringBuffer2
 	ld de, wStringBuffer2 + 3
 	ld bc, 3
@@ -163,7 +163,7 @@ BankOfMom:
 	ld bc, wMomsMoney
 	ld de, wStringBuffer2
 	farcall GiveMoney
-	jr c, .CantDepositThatMuch
+	jr c, .NotEnoughRoomInBank
 	ld bc, wStringBuffer2 + 3
 	ld de, wMoney
 	farcall TakeMoney
@@ -174,18 +174,18 @@ BankOfMom:
 	ld de, SFX_TRANSACTION
 	call PlaySFX
 	call WaitSFX
-	ld hl, MomVisitingText11
+	ld hl, MomStoredMoneyText
 	call PrintText
 	ld a, $8
 	jr .done_4
 
-.DontHaveThatMuchToDeposit:
-	ld hl, MomVisitingText8
+.InsufficientFundsInWallet:
+	ld hl, MomInsufficientFundsInWalletText
 	call PrintText
 	ret
 
-.CantDepositThatMuch:
-	ld hl, MomVisitingText9
+.NotEnoughRoomInBank:
+	ld hl, MomNotEnoughRoomInBankText
 	call PrintText
 	ret
 
@@ -197,7 +197,7 @@ BankOfMom:
 	ret
 
 .TakeMoney:
-	ld hl, MomVisitingText4
+	ld hl, MomTakeMoneyText
 	call PrintText
 	xor a
 	ld hl, wStringBuffer2
@@ -240,18 +240,18 @@ BankOfMom:
 	ld de, SFX_TRANSACTION
 	call PlaySFX
 	call WaitSFX
-	ld hl, MomVisitingText12
+	ld hl, MomTakenMoneyText
 	call PrintText
 	ld a, $8
 	jr .done_5
 
 .InsufficientFundsInBank:
-	ld hl, MomVisitingText6
+	ld hl, MomHaventSavedThatMuchText
 	call PrintText
 	ret
 
 .NotEnoughRoomInWallet:
-	ld hl, MomVisitingText7
+	ld hl, MomNotEnoughRoomInWalletText
 	call PrintText
 	ret
 
@@ -263,13 +263,13 @@ BankOfMom:
 	ret
 
 .StopOrStartSavingMoney:
-	ld hl, MomVisitingText5
+	ld hl, MomSaveMoneyText
 	call PrintText
 	call YesNoBox
 	jr c, .StopSavingMoney
 	ld a, (1 << MOM_ACTIVE_F) | (1 << MOM_SAVING_SOME_MONEY_F)
 	ld [wMomSavingMoney], a
-	ld hl, MomVisitingText10
+	ld hl, MomStartSavingMoneyText
 	call PrintText
 	ld a, $8
 	ld [wJumptableIndex], a
@@ -282,11 +282,11 @@ BankOfMom:
 	ld [wJumptableIndex], a
 	ret
 
-.AskDST:
-	ld hl, MomVisitingText13
+.JustDoWhatYouCan:
+	ld hl, MomJustDoWhatYouCanText
 	call PrintText
 
-.JustDoWhatYouCan:
+.AskDST:
 	ld hl, wJumptableIndex
 	set 7, [hl]
 	ret
@@ -309,13 +309,13 @@ DSTChecks:
 .LostBooklet:
 	call .ClearBox
 	bccoord 1, 14
-	ld hl, .Text_AdjustClock
+	ld hl, .TimesetAskAdjustDSTText
 	call PlaceHLTextAtBC
 	call YesNoBox
 	ret c
 	call .ClearBox
 	bccoord 1, 14
-	ld hl, .Text_LostInstructionBooklet
+	ld hl, .MomLostGearBookletText
 	call PlaceHLTextAtBC
 	ret
 
@@ -325,7 +325,7 @@ DSTChecks:
 	ld a, [wDST]
 	bit 7, a
 	jr z, .SetDST
-	ld hl, .Text_IsDSTOver
+	ld hl, .TimesetAskNotDSTText
 	call PlaceHLTextAtBC
 	call YesNoBox
 	ret c
@@ -335,12 +335,12 @@ DSTChecks:
 	call .SetClockBack
 	call .ClearBox
 	bccoord 1, 14
-	ld hl, .Text_SetClockBack
+	ld hl, .TimesetNotDSTText
 	call PlaceHLTextAtBC
 	ret
 
 .SetDST:
-	ld hl, .Text_SwitchToDST
+	ld hl, .TimesetAskDSTText
 	call PlaceHLTextAtBC
 	call YesNoBox
 	ret c
@@ -350,7 +350,7 @@ DSTChecks:
 	call .SetClockForward
 	call .ClearBox
 	bccoord 1, 14
-	ld hl, .Text_SetClockForward
+	ld hl, .TimesetDSTText
 	call PlaceHLTextAtBC
 	ret
 
@@ -389,35 +389,28 @@ DSTChecks:
 	call ClearBox
 	ret
 
-.Text_AdjustClock:
-	; Do you want to adjust your clock for Daylight Saving Time?
-	text_far Text_TimesetAskAdjustDST
+.TimesetAskAdjustDSTText:
+	text_far _TimesetAskAdjustDSTText
 	text_end
 
-.Text_LostInstructionBooklet:
-	; I lost the instruction booklet for the POKéGEAR.
-	; Come back again in a while.
-	text_far Text_MomLostGearBooklet
+.MomLostGearBookletText:
+	text_far _MomLostGearBookletText
 	text_end
 
-.Text_SwitchToDST:
-	; Do you want to switch to Daylight Saving Time?
-	text_far Text_TimesetAskDST
+.TimesetAskDSTText:
+	text_far _TimesetAskDSTText
 	text_end
 
-.Text_SetClockForward:
-	; I set the clock forward by one hour.
-	text_far Text_TimesetDST
+.TimesetDSTText:
+	text_far _TimesetDSTText
 	text_end
 
-.Text_IsDSTOver:
-	; Is Daylight Saving Time over?
-	text_far Text_TimesetAskNotDST
+.TimesetAskNotDSTText:
+	text_far _TimesetAskNotDSTText
 	text_end
 
-.Text_SetClockBack:
-	; I put the clock back one hour.
-	text_far Text_TimesetNotDST
+.TimesetNotDSTText:
+	text_far _TimesetNotDSTText
 	text_end
 
 Mom_SetUpWithdrawMenu:
@@ -591,83 +584,67 @@ Mom_WithdrawDepositMenuJoypad:
 	dt 9
 
 MomLeavingText1:
-	; Wow, that's a cute #MON. Where did you get it? … So, you're leaving on an adventure… OK! I'll help too. But what can I do for you? I know! I'll save money for you. On a long journey, money's important. Do you want me to save your money?
 	text_far _MomLeavingText1
 	text_end
 
 MomLeavingText2:
-	; OK, I'll take care of your money.
 	text_far _MomLeavingText2
 	text_end
 
 MomLeavingText3:
-	; Be careful. #MON are your friends. You need to work as a team. Now, go on!
 	text_far _MomLeavingText3
 	text_end
 
-MomVisitingText1:
-	; Hi! Welcome home! You're trying very hard, I see. I've kept your room tidy. Or is this about your money?
-	text_far _MomVisitingText1
+MomIsThisAboutYourMoneyText:
+	text_far _MomIsThisAboutYourMoneyText
 	text_end
 
-MomVisitingText2:
-	; What do you want to do?
-	text_far _MomVisitingText2
+MomBankWhatDoYouWantToDoText:
+	text_far _MomBankWhatDoYouWantToDoText
 	text_end
 
-MomVisitingText3:
-	; How much do you want to save?
-	text_far _MomVisitingText3
+MomStoreMoneyText:
+	text_far _MomStoreMoneyText
 	text_end
 
-MomVisitingText4:
-	; How much do you want to take?
-	text_far _MomVisitingText4
+MomTakeMoneyText:
+	text_far _MomTakeMoneyText
 	text_end
 
-MomVisitingText5:
-	; Do you want to save some money?
-	text_far _MomVisitingText5
+MomSaveMoneyText:
+	text_far _MomSaveMoneyText
 	text_end
 
-MomVisitingText6:
-	; You haven't saved that much.
-	text_far _MomVisitingText6
+MomHaventSavedThatMuchText:
+	text_far _MomHaventSavedThatMuchText
 	text_end
 
-MomVisitingText7:
-	; You can't take that much.
-	text_far _MomVisitingText7
+MomNotEnoughRoomInWalletText:
+	text_far _MomNotEnoughRoomInWalletText
 	text_end
 
-MomVisitingText8:
-	; You don't have that much.
-	text_far _MomVisitingText8
+MomInsufficientFundsInWalletText:
+	text_far _MomInsufficientFundsInWalletText
 	text_end
 
-MomVisitingText9:
-	; You can't save that much.
-	text_far _MomVisitingText9
+MomNotEnoughRoomInBankText:
+	text_far _MomNotEnoughRoomInBankText
 	text_end
 
-MomVisitingText10:
-	; OK, I'll save your money. Trust me! , stick with it!
-	text_far _MomVisitingText10
+MomStartSavingMoneyText:
+	text_far _MomStartSavingMoneyText
 	text_end
 
-MomVisitingText11:
-	; Your money's safe here! Get going!
-	text_far _MomVisitingText11
+MomStoredMoneyText:
+	text_far _MomStoredMoneyText
 	text_end
 
-MomVisitingText12:
-	; , don't give up!
-	text_far _MomVisitingText12
+MomTakenMoneyText:
+	text_far _MomTakenMoneyText
 	text_end
 
-MomVisitingText13:
-	; Just do what you can.
-	text_far _MomVisitingText13
+MomJustDoWhatYouCanText:
+	text_far _MomJustDoWhatYouCanText
 	text_end
 
 Mom_SavedString:

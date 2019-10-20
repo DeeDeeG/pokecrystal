@@ -1,4 +1,4 @@
-AnthonyAteBerriesText:
+AnthonyMonAteSomeBerriesText:
 	text "The other day, I"
 	line "was watching my"
 
@@ -20,7 +20,7 @@ AnthonyAteBerriesText:
 	line "was delicious!"
 	done
 
-AnthonyLotsOfWildText:
+AnthonyDefeatedMonText:
 	text "Lately, I've been"
 	line "running across"
 
@@ -66,7 +66,7 @@ AnthonyBattleRematchText:
 	line "you feel up to it!"
 	done
 
-AnthonyLaterText:
+AnthonyHangUpText:
 	text "All right then!"
 	line "Be good!"
 	done
@@ -99,7 +99,7 @@ AnthonySwarmText:
 	line "strong #MON."
 	done
 
-AnthonyHangupText:
+AnthonyWasntPayingAttentionText:
 	text "Rare #MON?"
 
 	para "Hey, sorry! I was"

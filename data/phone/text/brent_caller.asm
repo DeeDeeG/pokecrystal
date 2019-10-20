@@ -12,7 +12,7 @@ BrentRareTradeText:
 	line "it a secret!"
 	done
 
-BrentRareCatchText:
+BrentDefeatedMonText:
 	text "Oh yeah, I took"
 	line "down this wild"
 
@@ -59,7 +59,7 @@ BrentBattleRematchText:
 	text "."
 	done
 
-BrentLaterText:
+BrentHangUpText:
 	text "So that's it then."
 	done
 
@@ -141,7 +141,7 @@ BrentKimonoGirlGossipText:
 	line "a KIMONO GIRL."
 	done
 
-BrentHangupText:
+BrentSorryImTooBusyText:
 	text "You wanted to hear"
 	line "about BILL?"
 

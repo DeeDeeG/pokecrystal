@@ -1,4 +1,4 @@
-ReenaPerfectText:
+ReenaMonsIsAPerfectMatchText:
 	text "Listen, dear…"
 
 	para "Do you recall my"
@@ -16,7 +16,7 @@ ReenaPerfectText:
 	cont "match for me?"
 	done
 
-ReenaWildWinText:
+ReenaDefeatedMonText:
 	text "Have I ever faced"
 	line "a wild @"
 	text_ram wStringBuffer4
@@ -31,7 +31,7 @@ ReenaWildWinText:
 	cont "occasions!"
 	done
 
-ReenaWildLossText:
+ReenaLostAMonText:
 	text "Have I ever failed"
 	line "to catch a wild"
 	cont "#MON?"
@@ -47,7 +47,7 @@ ReenaWildLossText:
 	line "Oh! Never mind!"
 	done
 
-ReenaAskBattleText:
+ReenaBattleRematchText:
 	text "We are going to"
 	line "battle!"
 
@@ -60,7 +60,7 @@ ReenaAskBattleText:
 	line "wait! Got it?"
 	done
 
-ReenaLaterText:
+ReenaHangUpText:
 	text "Fine, you may go."
 	done
 

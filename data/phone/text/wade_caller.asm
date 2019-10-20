@@ -1,4 +1,4 @@
-WadeAreYouGrowingText:
+WadeAreYourMonGrowingText:
 	text "Are your #MON"
 	line "growing?"
 
@@ -17,7 +17,7 @@ WadeAreYouGrowingText:
 	line "it'll get tough."
 	done
 
-WadeOneHitText:
+WadeDefeatedMonText:
 	text "Oh yeah, we KO'd a"
 	line "wild @"
 	text_ram wStringBuffer4
@@ -32,7 +32,7 @@ WadeOneHitText:
 	line "the poor thing."
 	done
 
-WadeRunAwayText:
+WadeLostAMonText:
 	text "Oh yeah, a wild"
 	line "@"
 	text_ram wStringBuffer4
@@ -51,7 +51,7 @@ WadeRunAwayText:
 	line "had it."
 	done
 
-WadeAnotherBattleText:
+WadeBattleRematchText:
 	text "Do you feel like a"
 	line "#MON battle?"
 
@@ -67,7 +67,7 @@ WadeAnotherBattleText:
 	line "you get there."
 	done
 
-WadeLaterText:
+WadeHangUpText:
 	text "See you later!"
 	done
 
@@ -85,7 +85,7 @@ WadeBugCatchingContestText:
 	line "up my mind."
 	done
 
-WadeFoundBerryText:
+WadeFoundItemText:
 	text "I found all kinds"
 	line "of BERRIES. If you"
 

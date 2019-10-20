@@ -9,14 +9,13 @@ _BillsPC:
 	ld a, [wPartyCount]
 	and a
 	ret nz
-	ld hl, .Text_GottaHavePokemon
+	ld hl, .PCGottaHavePokemonText
 	call MenuTextboxBackup
 	scf
 	ret
 
-.Text_GottaHavePokemon:
-	; You gotta have #MON to call!
-	text_far Text_PCNoPokemonCall
+.PCGottaHavePokemonText:
+	text_far _PCGottaHavePokemonText
 	text_end
 
 .LogIn:
@@ -28,16 +27,15 @@ _BillsPC:
 	ld a, [hl]
 	push af
 	set NO_TEXT_SCROLL, [hl]
-	ld hl, .Text_What
+	ld hl, .PCWhatText
 	call PrintText
 	pop af
 	ld [wOptions], a
 	call LoadFontsBattleExtra
 	ret
 
-.Text_What:
-	; What?
-	text_far Text_PCWhat
+.PCWhatText:
+	text_far _PCWhatText
 	text_end
 
 .LogOut:
@@ -112,7 +110,7 @@ BillsPC_MovePKMNMenu:
 	call LoadStandardMenuHeader
 	farcall IsAnyMonHoldingMail
 	jr nc, .no_mail
-	ld hl, .Text_MonHoldingMail
+	ld hl, .PCMonHoldingMailText
 	call PrintText
 	jr .quit
 
@@ -128,9 +126,8 @@ BillsPC_MovePKMNMenu:
 	and a
 	ret
 
-.Text_MonHoldingMail:
-	; There is a #MON holding MAIL. Please remove the MAIL.
-	text_far Text_PCRemoveMail
+.PCMonHoldingMailText:
+	text_far _PCMonHoldingMailText
 	text_end
 
 BillsPC_DepositMenu:
@@ -152,25 +149,23 @@ Unreferenced_Functione512:
 	ret
 
 .no_mon
-	ld hl, .Text_NoMon
+	ld hl, .PCNoSingleMonText
 	call MenuTextboxBackup
 	scf
 	ret
 
 .only_one_mon
-	ld hl, .Text_ItsYourLastMon
+	ld hl, .PCCantDepositLastMonText
 	call MenuTextboxBackup
 	scf
 	ret
 
-.Text_NoMon:
-	; You don't have a single #MON!
-	text_far Text_PCNoSingleMon
+.PCNoSingleMonText:
+	text_far _PCNoSingleMonText
 	text_end
 
-.Text_ItsYourLastMon:
-	; You can't deposit your last #MON!
-	text_far Text_PCNoCantDeposit
+.PCCantDepositLastMonText:
+	text_far _PCCantDepositLastMonText
 	text_end
 
 CheckCurPartyMonFainted:
@@ -219,14 +214,13 @@ Unreferenced_Functione56d:
 	ret
 
 .asm_e576
-	ld hl, PCCantTakeScript
+	ld hl, PCCantTakeText
 	call MenuTextboxBackup
 	scf
 	ret
 
-PCCantTakeScript:
-	; You can't take any more #MON.
-	text_far Text_PCCantTake
+PCCantTakeText:
+	text_far _PCCantTakeText
 	text_end
 
 BillsPC_ChangeBoxMenu:

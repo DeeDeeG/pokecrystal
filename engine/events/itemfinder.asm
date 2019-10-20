@@ -30,23 +30,21 @@ ItemFinder:
 	reloadmappart
 	special UpdateTimePals
 	callasm .ItemfinderSound
-	writetext .Text_FoundSomething
+	writetext .ItemfinderItemNearbyText
 	closetext
 	end
 
 .Script_FoundNothing:
 	reloadmappart
 	special UpdateTimePals
-	writetext .Text_FoundNothing
+	writetext .ItemfinderNopeText
 	closetext
 	end
 
-.Text_FoundSomething:
-	; Yes! ITEMFINDER indicates there's an item nearby.
-	text_far Text_ItemfinderNearby
+.ItemfinderItemNearbyText:
+	text_far _ItemfinderItemNearbyText
 	text_end
 
-.Text_FoundNothing:
-	; Nope! ITEMFINDER isn't responding.
-	text_far Text_ItemfinderNothing
+.ItemfinderNopeText:
+	text_far _ItemfinderNopeText
 	text_end

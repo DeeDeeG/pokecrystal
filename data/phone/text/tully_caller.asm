@@ -1,4 +1,4 @@
-TullyGrownText:
+TullyMonHasGrownText:
 	text "My @"
 	text_ram wStringBuffer4
 	text " has"
@@ -11,7 +11,7 @@ TullyGrownText:
 	line "it's way bigger."
 	done
 
-TullyKOdText:
+TullyDefeatedMonText:
 	text "Oh yeah, I KO'd a"
 	line "wild @"
 	text_ram wStringBuffer4
@@ -25,7 +25,7 @@ TullyKOdText:
 	cont "the phone…"
 	done
 
-TullyLostWildText:
+TullyLostAMonText:
 	text "Oh yeah, I lost a"
 	line "wild @"
 	text_ram wStringBuffer4
@@ -39,7 +39,7 @@ TullyLostWildText:
 	cont "the phone…"
 	done
 
-TullyAskBattleText:
+TullyBattleRematchText:
 	text "We should get a"
 	line "battle going!"
 
@@ -52,12 +52,12 @@ TullyAskBattleText:
 	line "have the time."
 	done
 
-TullyLaterText:
+TullyHangUpText:
 	text "Well, I'll be"
 	line "seeing you."
 	done
 
-TullyItemText:
+TullyFoundItemText:
 	text "I picked up a good"
 	line "little thing at"
 	cont "the water's edge."

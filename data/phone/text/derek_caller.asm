@@ -1,4 +1,4 @@
-DerekCheekPincherText:
+DerekCheekPinchingText:
 	text "Listen to this."
 	line "My @"
 	text_ram wStringBuffer4
@@ -12,7 +12,7 @@ DerekCheekPincherText:
 	para "I must be special."
 	done
 
-DerekGreatPikachuText:
+DerekDefeatedMonText:
 	text "Oh, and recently,"
 	line "my PIKACHU beat a"
 	cont "wild @"
@@ -51,7 +51,7 @@ DerekLostAMonText:
 	line "good otherwise."
 	done
 
-DerekLaterText:
+DerekHangUpText:
 	text "Well, let's talk"
 	line "again!"
 	done
@@ -83,7 +83,7 @@ DerekFoundItemText:
 	cont "it too!"
 	done
 
-DerekHangupText:
+DerekLetsGetTogetherText:
 	text "How is your"
 	line "PIKACHU doing?"
 

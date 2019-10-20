@@ -11,7 +11,7 @@ RalphNeglectingKidsText:
 	line "actually."
 	done
 
-RalphWildWinText:
+RalphDefeatedMonText:
 	text "I just beat a wild"
 	line "@"
 	text_ram wStringBuffer4
@@ -27,7 +27,7 @@ RalphWildWinText:
 	line "cocky…"
 	done
 
-RalphWildLossText:
+RalphLostAMonText:
 	text "Yesterday a wild"
 	line "@"
 	text_ram wStringBuffer4
@@ -46,7 +46,7 @@ RalphWildLossText:
 	line "made my day!"
 	done
 
-RalphAskBattleText:
+RalphBattleRematchText:
 	text "What do you say to"
 	line "a battle with me?"
 
@@ -62,7 +62,7 @@ RalphAskBattleText:
 	line "the spot!"
 	done
 
-RalphLaterText:
+RalphHangUpText:
 	text "You call your mom"
 	line "sometimes too!"
 	done

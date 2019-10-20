@@ -4548,19 +4548,19 @@ BattleCommand_StatUpMessage:
 .stat
 	text_far Text_BattleEffectActivate
 	text_asm
-	ld hl, .up
+	ld hl, .BattleStatWentUpText
 	ld a, [wLoweredStat]
 	and $f0
 	ret z
-	ld hl, .wayup
+	ld hl, .BattleStatWentWayUpText
 	ret
 
-.wayup
-	text_far Text_BattleWentWayUp
+.BattleStatWentWayUpText:
+	text_far _BattleStatWentWayUpText
 	text_end
 
-.up
-	text_far Text_BattleWentUp
+.BattleStatWentUpText:
+	text_far _BattleStatWentUpText
 	text_end
 
 BattleCommand_StatDownMessage:
@@ -4578,19 +4578,19 @@ BattleCommand_StatDownMessage:
 .stat
 	text_far Text_BattleFoeEffectActivate
 	text_asm
-	ld hl, .fell
+	ld hl, .BattleStatFellText
 	ld a, [wLoweredStat]
 	and $f0
 	ret z
-	ld hl, .sharplyfell
+	ld hl, .BattleStatSharplyFellText
 	ret
 
-.sharplyfell
-	text_far Text_BattleSharplyFell
+.BattleStatSharplyFellText:
+	text_far _BattleStatSharplyFellText
 	text_end
 
-.fell
-	text_far Text_BattleFell
+.BattleStatFellText:
+	text_far _BattleStatFellText
 	text_end
 
 TryLowerStat:
@@ -5646,59 +5646,53 @@ BattleCommand_Charge:
 	ld a, BATTLE_VARS_MOVE_ANIM
 	call GetBattleVar
 	cp RAZOR_WIND
-	ld hl, .RazorWind
+	ld hl, .BattleMadeWhirlwindText
 	jr z, .done
 
 	cp SOLARBEAM
-	ld hl, .Solarbeam
+	ld hl, .BattleTookSunlightText
 	jr z, .done
 
 	cp SKULL_BASH
-	ld hl, .SkullBash
+	ld hl, .BattleLoweredHeadText
 	jr z, .done
 
 	cp SKY_ATTACK
-	ld hl, .SkyAttack
+	ld hl, .BattleGlowingText
 	jr z, .done
 
 	cp FLY
-	ld hl, .Fly
+	ld hl, .BattleFlewText
 	jr z, .done
 
 	cp DIG
-	ld hl, .Dig
+	ld hl, .BattleDugText
 
 .done
 	ret
 
-.RazorWind:
-; 'made a whirlwind!'
-	text_far Text_BattleMadeWhirlwind
+.BattleMadeWhirlwindText:
+	text_far _BattleMadeWhirlwindText
 	text_end
 
-.Solarbeam:
-; 'took in sunlight!'
-	text_far Text_BattleTookSunlight
+.BattleTookSunlightText:
+	text_far _BattleTookSunlightText
 	text_end
 
-.SkullBash:
-; 'lowered its head!'
-	text_far Text_BattleLowerHead
+.BattleLoweredHeadText:
+	text_far _BattleLoweredHeadText
 	text_end
 
-.SkyAttack:
-; 'is glowing!'
-	text_far Text_BattleGlowing
+.BattleGlowingText:
+	text_far _BattleGlowingText
 	text_end
 
-.Fly:
-; 'flew up high!'
-	text_far Text_BattleFlew
+.BattleFlewText:
+	text_far _BattleFlewText
 	text_end
 
-.Dig:
-; 'dug a hole!'
-	text_far Text_BattleDug
+.BattleDugText:
+	text_far _BattleDugText
 	text_end
 
 BattleCommand3c:

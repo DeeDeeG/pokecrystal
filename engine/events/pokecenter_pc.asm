@@ -2,9 +2,9 @@ PokemonCenterPC:
 	call PC_CheckPartyForPokemon
 	ret c
 	call PC_PlayBootSound
-	ld hl, PokecenterPCText_BootedUpPC
+	ld hl, PokecenterPCTurnOnText
 	call PC_DisplayText
-	ld hl, PokecenterPCText_AccessWhosePC
+	ld hl, PokecenterPCWhoseText
 	call PC_DisplayTextWaitMenu
 	ld hl, .TopMenu
 	call LoadMenuHeader
@@ -104,19 +104,18 @@ PC_CheckPartyForPokemon:
 	ret nz
 	ld de, SFX_CHOOSE_PC_OPTION
 	call PlaySFX
-	ld hl, .MustHavePokemonToUse
+	ld hl, .PokecenterPCCantUseText
 	call PC_DisplayText
 	scf
 	ret
 
-.MustHavePokemonToUse:
-	; Bzzzzt! You must have a #MON to use this!
-	text_far Text_PokePCCantUse
+.PokecenterPCCantUseText:
+	text_far _PokecenterPCCantUseText
 	text_end
 
 BillsPC:
 	call PC_PlayChoosePCSound
-	ld hl, PokecenterPCText_AccessedBillsPC
+	ld hl, PokecenterBillsPCText
 	call PC_DisplayText
 	farcall _BillsPC
 	and a
@@ -124,7 +123,7 @@ BillsPC:
 
 PlayersPC:
 	call PC_PlayChoosePCSound
-	ld hl, PokecenterPCText_AccessedOwnPC
+	ld hl, PokecenterPlayersPCText
 	call PC_DisplayText
 	ld b, $0
 	call _PlayersPC
@@ -133,7 +132,7 @@ PlayersPC:
 
 OaksPC:
 	call PC_PlayChoosePCSound
-	ld hl, PokecenterPCText_AccessedOaksPC
+	ld hl, PokecenterOaksPCText
 	call PC_DisplayText
 	farcall ProfOaksPC
 	and a
@@ -148,7 +147,7 @@ HallOfFamePC:
 	ret
 
 TurnOffPC:
-	ld hl, PokecenterPCText_LinkClosed
+	ld hl, PokecenterPCOaksClosedText
 	call PrintText
 	scf
 	ret
@@ -181,7 +180,7 @@ PC_WaitPlaySFX:
 
 _PlayersHousePC:
 	call PC_PlayBootSound
-	ld hl, PlayersPCTurnOnScript
+	ld hl, PlayersPCTurnOnText
 	call PC_DisplayText
 	ld b, $1
 	call _PlayersPC
@@ -199,15 +198,14 @@ _PlayersHousePC:
 	ld c, $1
 	ret
 
-PlayersPCTurnOnScript:
-	; turned on the PC.
-	text_far Text_PlayersPCTurnOn
+PlayersPCTurnOnText:
+	text_far _PlayersPCTurnOnText
 	text_end
 
 _PlayersPC:
 	ld a, b
 	ld [wWhichIndexSet], a
-	ld hl, PlayersPCAskWhatDoScript
+	ld hl, PlayersPCAskWhatDoText
 	call PC_DisplayTextWaitMenu
 	call Function15715
 	call ExitMenu
@@ -302,9 +300,8 @@ PC_DisplayTextWaitMenu:
 	ld [wOptions], a
 	ret
 
-PlayersPCAskWhatDoScript:
-	; What do you want to do?
-	text_far Text_PlayersPCAskWhatDo
+PlayersPCAskWhatDoText:
+	text_far _PlayersPCAskWhatDoText
 	text_end
 
 PlayerWithdrawItemMenu:
@@ -334,7 +331,7 @@ PlayerWithdrawItemMenu:
 	jr .withdraw
 
 .askquantity
-	ld hl, .HowManyText
+	ld hl, .PlayersPCHowManyWithdrawText
 	call MenuTextbox
 	farcall SelectQuantityToToss
 	call ExitMenu
@@ -356,7 +353,7 @@ PlayerWithdrawItemMenu:
 	ld hl, wNumPCItems
 	call TossItem
 	predef PartyMonItemName
-	ld hl, .WithdrewText
+	ld hl, .PlayersPCWithdrewItemsText
 	call MenuTextbox
 	xor a
 	ldh [hBGMapMode], a
@@ -364,22 +361,22 @@ PlayerWithdrawItemMenu:
 	ret
 
 .PackFull:
-	ld hl, .NoRoomText
+	ld hl, .PlayersPCNoRoomWithdrawText
 	call MenuTextboxBackup
 	ret
 
 .done
 	ret
 
-.HowManyText:
+.PlayersPCHowManyWithdrawText:
 	text_far _PlayersPCHowManyWithdrawText
 	text_end
 
-.WithdrewText:
+.PlayersPCWithdrewItemsText:
 	text_far _PlayersPCWithdrewItemsText
 	text_end
 
-.NoRoomText:
+.PlayersPCNoRoomWithdrawText:
 	text_far _PlayersPCNoRoomWithdrawText
 	text_end
 
@@ -436,13 +433,12 @@ PlayerDepositItemMenu:
 .CheckItemsInBag:
 	farcall HasNoItems
 	ret nc
-	ld hl, .NoItemsInBag
+	ld hl, .PlayersPCNoItemsText
 	call MenuTextboxBackup
 	scf
 	ret
 
-.NoItemsInBag:
-	; No items here!
+.PlayersPCNoItemsText:
 	text_far _PlayersPCNoItemsText
 	text_end
 
@@ -494,7 +490,7 @@ PlayerDepositItemMenu:
 	jr .ContinueDeposit
 
 .AskQuantity:
-	ld hl, .HowManyText
+	ld hl, .PlayersPCHowManyDepositText
 	call MenuTextbox
 	farcall SelectQuantityToToss
 	push af
@@ -518,12 +514,12 @@ PlayerDepositItemMenu:
 	ld hl, wNumItems
 	call TossItem
 	predef PartyMonItemName
-	ld hl, .DepositText
+	ld hl, .PlayersPCDepositItemsText
 	call PrintText
 	ret
 
 .NoRoomInPC:
-	ld hl, .NoRoomText
+	ld hl, .PlayersPCNoRoomDepositText
 	call PrintText
 	ret
 
@@ -531,15 +527,15 @@ PlayerDepositItemMenu:
 	and a
 	ret
 
-.HowManyText:
+.PlayersPCHowManyDepositText:
 	text_far _PlayersPCHowManyDepositText
 	text_end
 
-.DepositText:
+.PlayersPCDepositItemsText:
 	text_far _PlayersPCDepositItemsText
 	text_end
 
-.NoRoomText:
+.PlayersPCNoRoomDepositText:
 	text_far _PlayersPCNoRoomDepositText
 	text_end
 
@@ -637,32 +633,26 @@ PC_DisplayText:
 	call ExitMenu
 	ret
 
-PokecenterPCText_BootedUpPC:
-	; turned on the PC.
-	text_far Text_CenterPCTurnOn
+PokecenterPCTurnOnText:
+	text_far _PokecenterPCTurnOnText
 	text_end
 
-PokecenterPCText_AccessWhosePC:
-	; Access whose PC?
-	text_far Text_CenterPCWhose
+PokecenterPCWhoseText:
+	text_far _PokecenterPCWhoseText
 	text_end
 
-PokecenterPCText_AccessedBillsPC:
-	; BILL's PC accessed. #MON Storage System opened.
-	text_far Text_CenterPCBill
+PokecenterBillsPCText:
+	text_far _PokecenterBillsPCText
 	text_end
 
-PokecenterPCText_AccessedOwnPC:
-	; Accessed own PC. Item Storage System opened.
-	text_far Text_CenterPCPlayers
+PokecenterPlayersPCText:
+	text_far _PokecenterPlayersPCText
 	text_end
 
-PokecenterPCText_AccessedOaksPC:
-	; PROF.OAK's PC accessed. #DEX Rating System opened.
-	text_far Text_CenterPCOaks
+PokecenterOaksPCText:
+	text_far _PokecenterOaksPCText
 	text_end
 
-PokecenterPCText_LinkClosed:
-	; … Link closed…
-	text_far Text_CenterPCOaksClosed
+PokecenterPCOaksClosedText:
+	text_far _PokecenterPCOaksClosedText
 	text_end
